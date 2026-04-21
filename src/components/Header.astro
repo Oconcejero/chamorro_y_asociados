@@ -1,0 +1,76 @@
+---
+// Header.astro
+const baseUrl = import.meta.env.BASE_URL;
+const { pathname } = Astro.url;
+const isFamiliaActive =
+  pathname === `${baseUrl}/familia` || pathname === `${baseUrl}/familia/`;
+const isEmpresaActive =
+  pathname === `${baseUrl}/empresa` || pathname === `${baseUrl}/empresa/`;
+const isContratoActive =
+  pathname === `${baseUrl}/contratos` || pathname === `${baseUrl}/contratos/`;
+const isViviendaActive =
+  pathname === `${baseUrl}/vivienda` || pathname === `${baseUrl}/vivienda/`;
+const isAdministracionActive =
+  pathname === `${baseUrl}/administracion` ||
+  pathname === `${baseUrl}/administracion/`;
+const isTrabajoActive =
+  pathname === `${baseUrl}/trabajo` || pathname === `${baseUrl}/trabajo/`;
+---
+
+<header class="main-header">
+  <div class="logo-container">
+    <a href={`${baseUrl}/`}>
+      <img src={`${baseUrl}/CHA_logo.png`} alt="Logotipo CHA" class="logo-img" />
+    </a>
+  </div>
+
+  <button class="mobile-menu-toggle" aria-label="Menú" id="menu-btn">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <nav class="nav-container" id="nav-menu">
+    <a
+      href={`${baseUrl}/familia`}
+      class={isFamiliaActive ? "nav-item active" : "nav-item"}>FAMILIA</a
+    >
+    <div class="divider"></div>
+    <a
+      href={`${baseUrl}/empresa`}
+      class={isEmpresaActive ? "nav-item active" : "nav-item"}>EMPRESA</a
+    >
+    <div class="divider"></div>
+    <a
+      href={`${baseUrl}/contratos`}
+      class={isContratoActive ? "nav-item active" : "nav-item"}>CONTRATOS</a
+    >
+    <div class="divider"></div>
+    <a
+      href={`${baseUrl}/vivienda`}
+      class={isViviendaActive ? "nav-item active" : "nav-item"}>VIVIENDA</a
+    >
+    <div class="divider"></div>
+    <a
+      href={`${baseUrl}/administracion`}
+      class={isAdministracionActive ? "nav-item active" : "nav-item"}
+      >ADMINISTRACIÓN</a
+    >
+    <div class="divider"></div>
+    <a
+      href={`${baseUrl}/trabajo`}
+      class={isTrabajoActive ? "nav-item active" : "nav-item"}>TRABAJO</a
+    >
+  </nav>
+</header>
+
+<script>
+  // Script para manejar el click en móviles
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("nav-menu");
+
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("mobile-active");
+    btn?.classList.toggle("is-active");
+  });
+</script>

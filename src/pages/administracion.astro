@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import HelpButton from "../components/HelpButton.astro";
+import Footer from "../components/Footer.astro";
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Layout title="Administración | Chamorro & Asociados">
+  <Header />
+
+  <main class="content-container">
+    <section class="intro-section">
+      <div class="section-banner">
+        <img
+          src={`${baseUrl}/images/cha_administration.jpg`}
+          alt="Administracion"
+          class="banner-img"
+        />
+      </div>
+      <h1 class="section-title">ADMINISTRACIÓN</h1>
+
+      <div class="grid-layout">
+        <div class="text-column">
+          <p>
+            Cada vez más, <strong>LAS ADMINISTRACIONES</strong> (Local, Autonómica,
+            Estatal) intervienen más en nuestra actividad social, familiar o económica.
+          </p>
+          <p>
+            Por razones históricas y sociológicas se tiende a pensar que estamos
+            sometidos de manera inexorable a sus designios. <strong
+              >ESO NO ES ASÍ</strong
+            > en un Estado de Derecho.
+          </p>
+          <p>
+            Como ciudadanos tenemos armas e instrumentos para defendernos de <strong
+              >ABUSOS, AGRAVIOS O CONFUSIONES</strong
+            > derivados de cualquier acto Administrativo que nos resulte dañino o
+            gravoso.
+          </p>
+
+          <div class="highlight-box">
+            <p>
+              Ninguna Administración está por encima de ningún ciudadano. Todas
+              ellas son las primeras sometidas al <strong
+                >IMPERIO de la LEY</strong
+              >.
+            </p>
+          </div>
+        </div>
+
+        <div class="questions-column">
+          <ul class="styled-list">
+            <li>¿Qué pasa si me expropian? ¿Pueden embargarme?</li>
+            <li>¿Qué hago con una multa o una sanción?</li>
+            <li>¿Cómo tengo que hacer una reclamación ante el Ayuntamiento?</li>
+            <li>
+              ¿Qué hacer si me niegan una prestación por invalidez o
+              dependencia?
+            </li>
+            <li>¿Y si me cancelan un contrato de servicios de repente?</li>
+          </ul>
+
+          <div class="highlight-box">
+            <p>
+              SE TRATA DE JUGAR EN SU MISMO SISTEMA Y CON LAS MISMAS REGLAS,
+              HACIÉNDOLO EN TIEMPO Y FORMA.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-container">
+        <HelpButton />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

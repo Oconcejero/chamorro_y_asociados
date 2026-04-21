@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import HelpButton from "../components/HelpButton.astro";
+import Footer from "../components/Footer.astro";
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Layout title="Contratos | Chamorro & Asociados">
+  <Header />
+
+  <main class="content-container">
+    <section class="intro-section">
+      <div class="section-banner">
+        <img
+          src={`${baseUrl}/images/cha_contracts.jpg`}
+          alt="Contratos"
+          class="banner-img"
+        />
+      </div>
+      <h1 class="section-title">LOS CONTRATOS</h1>
+
+      <div class="grid-layout">
+        <div class="text-column">
+          <p>
+            El <strong>CONTRATO</strong> es sencillamente la forma escrita o verbal,
+            por la que dos o más partes formalizan una voluntad de acuerdo para llevar
+            a cabo una actividad, sea laboral, crediticia, de compraventa, de servicios,
+            etc.
+          </p>
+          <p>
+            En este acuerdo las partes se obligan, cada una, a una serie de
+            actuaciones para el buen fin del acto descrito y acordado, y no para
+            otros cualquiera.
+          </p>
+          <p>
+            Los acuerdos deben ser <strong>EQUILIBRADOS</strong> y no estar sometidos
+            a ningún tipo de "cláusula abusiva" que manifiestamente ponga a una de
+            las partes a merced de la otra.
+          </p>
+
+          <div class="highlight-box">
+            <p>
+              Los <strong>CONTRATOS</strong> nunca deben desarrollarse bajo la premisa
+              de intentar sacar beneficio; son acuerdos <strong>SIEMPRE</strong> equilibrados
+              a entera satisfacción de las partes.
+            </p>
+          </div>
+        </div>
+
+        <div class="questions-column">
+          <ul class="styled-list">
+            <li>¿Qué validez tiene un acuerdo verbal?</li>
+            <li>¿Cuándo un préstamo deja de serlo y se convierte en Usura?</li>
+            <li>
+              ¿Mi contrato de Arrendamiento ha caducado hace dos años, pasa
+              algo? ¿Debo renovarlo?
+            </li>
+            <li>
+              He cambiado mi barca por un coche, ¿cómo debo realizar el
+              contrato?
+            </li>
+            <li>
+              ¿Si la otra parte incumple lo acordado debo seguir pagando las
+              cuotas establecidas?
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            <p>
+              ASEGURAR EL CUMPLIMIENTO DE LOS PACTOS ALCANZADOS SIN BENEFICIOS
+              ESPURIOS POR ESTADOS DE NECESIDAD.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-container">
+        <HelpButton />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

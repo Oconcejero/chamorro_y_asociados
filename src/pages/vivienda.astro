@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import HelpButton from "../components/HelpButton.astro";
+import Footer from "../components/Footer.astro";
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Layout title="Vivienda | Chamorro & Asociados">
+  <Header />
+
+  <main class="content-container">
+    <section class="intro-section">
+      <div class="section-banner">
+        <img
+          src={`${baseUrl}/images/cha_home.jpg`}
+          alt="Vivienda"
+          class="banner-img"
+        />
+      </div>
+      <h1 class="section-title">VIVIENDA</h1>
+
+      <div class="grid-layout">
+        <div class="text-column">
+          <p>
+            La <strong>VIVIENDA</strong> supone una de las circunstancias y de las
+            decisiones más importantes con las que a lo largo de nuestra vida vamos
+            a enfrentarnos.
+          </p>
+          <p>
+            ¿COMPRAR O ALQUILAR? ¿COMPRAR A MEDIAS? ¿ALQUILER CON OPCIÓN DE
+            COMPRA? ¿SUBARRENDAR?. El hecho de tomar la decisión de <strong
+              >COMPRA</strong
+            > significa un cambio de enorme trascendencia, por ello conviene establecer
+            todas las salvaguardas posibles.
+          </p>
+
+          <div class="highlight-box">
+            <h3>COMPRA DE OBRA NUEVA</h3>
+            <ul class="styled-list">
+              <li>¿Qué garantías tengo con las entregas a cuenta?</li>
+              <li>¿Cómo garantizo los plazos y las entregas?</li>
+              <li>
+                ¿Qué obligaciones tiene el Promotor? ¿La Constructora? ¿El
+                arquitecto?
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="questions-column">
+          <p>Si se tratase de una <strong>VIVIENDA USADA</strong>:</p>
+          <ul class="styled-list">
+            <li>¿Qué significa y para qué sirve un Contrato de Arras?</li>
+            <li>¿Cómo debo negociar los pagos y la gestión de una Hipoteca?</li>
+            <li>¿A nombre de quién me interesa poner la Propiedad?</li>
+            <li>
+              Si un vecino no paga las cuotas ¿qué podemos hacer en la
+              Comunidad?
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            <p>
+              Todas ellas tienen <strong>SOLUCIÓN</strong>, pero ante todo <strong
+                >SIEMPRE</strong
+              > interesa contemplar la situación en su conjunto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-container">
+        <HelpButton />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import HelpButton from "../components/HelpButton.astro";
+import Footer from "../components/Footer.astro";
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Layout title="Trabajo | Chamorro & Asociados">
+  <Header />
+
+  <main class="content-container">
+    <section class="intro-section">
+      <div class="section-banner">
+        <img
+          src={`${baseUrl}/images/cha_work.jpg`}
+          alt="Trabajo"
+          class="banner-img"
+        />
+      </div>
+      <h1 class="section-title">EL TRABAJO</h1>
+
+      <div class="grid-layout">
+        <div class="text-column">
+          <p>
+            El mundo del trabajo ocupa un tercio de nuestras vidas. Es la fuente
+            de nuestros ingresos y el núcleo de nuestras relaciones, pero
+            también el origen de muchos conflictos que condicionan nuestro
+            futuro.
+          </p>
+
+          <div class="profile-section">
+            <h3>EMPLEADO POR CUENTA AJENA</h3>
+            <ul class="styled-list">
+              <li>¿Qué sucede cuando me despiden? ¿Cómo debo actuar?</li>
+              <li>
+                ¿Mi contrato laboral actual se ajusta a los derechos que me
+                asisten?
+              </li>
+              <li>
+                ¿Qué pasa si mi empresa se fusiona, cambia de dueños o cierra?
+              </li>
+              <li>¿Cómo me afecta el pago encubierto de mis salarios?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="questions-column">
+          <div class="profile-section">
+            <h3>TRABAJADOR AUTÓNOMO / EMPRESARIO</h3>
+            <ul class="styled-list">
+              <li>
+                ¿Cuál es el mejor sistema para tener empleados a mi cargo?
+              </li>
+              <li>
+                ¿Cómo debe materializarse mi relación con el Comité de Empresa?
+              </li>
+              <li>
+                ¿Cuándo y cómo debe plantearse un <strong>E.R.E.</strong>?
+              </li>
+              <li>
+                ¿Cómo puedo premiar la productividad sin generar riesgos
+                futuros?
+              </li>
+            </ul>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              Es necesario un <strong>DIAGNÓSTICO</strong> acertado de la situación
+              y un <strong>PLAN</strong> de actuación para alcanzar un <strong
+                >OBJETIVO</strong
+              > plausible y veraz.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-container">
+        <HelpButton />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

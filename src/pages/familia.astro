@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import HelpButton from "../components/HelpButton.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/main.css";
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Layout title="Familia | Chamorro & Asociados">
+  <Header />
+
+  <main class="content-container">
+    <section class="intro-section">
+      <div class="section-banner">
+        <img
+          src={`${baseUrl}/images/cha_family.jpg`}
+          alt="Familia"
+          class="banner-img"
+        />
+      </div>
+      <h1 class="section-title">FAMILIA</h1>
+
+      <div class="grid-layout">
+        <div class="text-column">
+          <p>
+            La <strong>FAMILIA</strong> como conjunto, desde antes de su origen, debe
+            ser contemplada en toda su dimensión de <strong>FUTURO</strong> para conseguir
+            paliar al máximo <strong>CONFLICTOS</strong> plenamente evitables si somos
+            capaces de adoptar, desde el principio <strong
+              >MEDIDAS PREVENTIVAS</strong
+            > que eviten al máximo la <strong>CONFLICTIVIDAD INNECESARIA</strong
+            > en el desarrollo del campo relacional propio de un colectivo humano.
+          </p>
+          <p>
+            Ante la <strong>BODA</strong> de un@s hij@s ¿Cómo y quién puede explicarles
+            la conveniencia de establecer un régimen matrimonial determinado? (Gananciales
+            o Separación de Bienes).
+          </p>
+          <p>
+            Las Separaciones y los Divorcios hace años eran un fenómeno inusual,
+            además de ser mal aceptados socialmente. Hoy en día forma parte
+            normalizada de nuestra vida social sin que, afortunadamente, un
+            Divorcio sea motivo de ninguna estigmatización social.
+          </p>
+          <p class="stats">
+            Por estadística podemos afirmar que en una <strong>FAMILIA</strong> con
+            tres hij@s, UNO al menos en un futuro será una persona divorciada ya que
+            la Tasa actual de divorcios en España se sitúa en torno al 30% aproximadamente.
+          </p>
+        </div>
+
+        <div class="questions-column">
+          <ul class="styled-list">
+            <li>¿Son situaciones que se pueden prevenir? ¿Tiene solución?</li>
+            <li>¿Qué medidas previas conviene tener en cuenta?</li>
+            <li>
+              Antes que los conflictos se produzcan es mejor tener de antemano
+              un <strong>DIBUJO</strong> que apunte las soluciones <strong
+                >PREVENTIVAS</strong
+              >
+            </li>
+            <li>¿Qué es y para qué sirve un acuerdo prematrimonial?</li>
+            <li>
+              ¿Qué alcance tienen los actos de <strong
+                >CONCILIACIÓN Y MEDIACIÓN</strong
+              >?
+            </li>
+            <li>
+              ¿Cómo puedo garantizar la línea sucesoria Padres–Hijos–Nietos sin
+              que se vea afectada por razones de separaciones o divorcios?
+            </li>
+            <li>
+              ¿En qué situaciones o en qué momento conviene pedir una <strong
+                >INCAPACITACIÓN</strong
+              > de un familiar, de un disminuido psíquico, de un anciano con senilidad
+              profunda?
+            </li>
+            <li>
+              ¿En qué condiciones se debe solicitar la <strong
+                >EMANCIPACIÓN</strong
+              >?
+            </li>
+            <li>
+              ¿Qué pasa con las tutelas y custodias de los hijos en caso de
+              ruptura matrimonial?
+            </li>
+            <li>¿Qué pasa si uno de los padres es extranjero?</li>
+            <li>
+              ¿Los abuelos de los hijos de padres divorciados qué derechos los
+              asisten?
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>LAS FAMILIAS SON COMO LAS PERSONAS: NUNCA HAY DOS IGUALES.</p>
+        <p>
+          CADA CASO, CADA SITUACIÓN REQUIERE DE UN TRATAMIENTO ESPECIAL Y
+          SIEMPRE... SIEMPRE UN CUIDADO EXQUISITO PORQUE LA MATERIA QUE LA
+          CONFORMA ES LA MÁS DELICADA:
+        </p>
+        <p class="final-word">LOS SENTIMIENTOS</p>
+      </div>
+
+      <div class="action-container">
+        <HelpButton />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
