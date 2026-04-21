@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Hablamos | Chamorro & Asociados">
@@ -78,7 +79,7 @@ import Footer from "../components/Footer.astro";
           <div class="form-group-checkbox">
             <input type="checkbox" id="privacy" name="privacy" required />
             <label for="privacy">
-              Acepto los <a href="/privacidad" target="_blank"
+              Acepto los <a href={`${baseUrl}/privacidad`} target="_blank"
                 >términos de privacidad</a
               >
             </label>
