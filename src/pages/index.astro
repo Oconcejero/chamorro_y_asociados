@@ -10,6 +10,8 @@ const baseUrl = import.meta.env.BASE_URL;
 	<Header />
 
 	<main class="home-hero">
+		<canvas id="particle-canvas"></canvas>
+
 		<div class="hero-content">
 			<img
 				src={`${baseUrl}/ICON_HOME.svg`}
@@ -20,9 +22,64 @@ const baseUrl = import.meta.env.BASE_URL;
 			<h1 class="hero-title">Chamorro & Asociados</h1>
 
 			<p class="hero-slogan">
-				"Vale más conseguir un <span class="highlight">BUEN ACUERDO</span><br />
-				que porfiar en el <span class="highlight">MEJOR PLEITO</span>"
+				"Vale más conseguir un <span class="highlight-glow">BUEN ACUERDO</span
+				><br />
+				que porfiar en el <span class="highlight-glow">MEJOR PLEITO</span>"
 			</p>
 		</div>
 	</main>
 </Layout>
+
+<script>
+	const canvas = document.getElementById(
+		"particle-canvas",
+	) as HTMLCanvasElement;
+	const ctx = canvas.getContext("2d");
+	let particles: any[] = [];
+
+	function init() {
+		// Ajustamos el canvas al tamaño real del contenedor hero
+		const container = canvas.parentElement;
+		if (container) {
+			canvas.width = container.clientWidth;
+			canvas.height = container.clientHeight;
+		}
+
+		particles = [];
+		for (let i = 0; i < 100; i++) {
+			particles.push({
+				x: Math.random() * canvas.width,
+				y: Math.random() * canvas.height,
+				size: Math.random() * 2 + 1,
+				speedX: (Math.random() - 0.5) * 0.8, // Velocidad un poco mayor
+				speedY: (Math.random() - 0.5) * 0.8,
+				opacity: Math.random() * 0.5 + 0.2,
+			});
+		}
+	}
+
+	function animate() {
+		if (!ctx) return;
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+		particles.forEach((p) => {
+			// Actualizar posición
+			p.x += p.speedX;
+			p.y += p.speedY;
+
+			// Rebote en los bordes corregido
+			if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+			if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+			ctx.fillStyle = `rgba(255, 0, 127, ${p.opacity})`;
+			ctx.beginPath();
+			ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+			ctx.fill();
+		});
+		requestAnimationFrame(animate);
+	}
+
+	window.addEventListener("resize", init);
+	init();
+	animate();
+</script>
