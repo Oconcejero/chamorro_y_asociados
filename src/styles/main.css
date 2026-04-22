@@ -166,96 +166,141 @@ body {
   4. PÁGINAS DE CONTENIDO
    ============================================================ */
 .content-container {
-  padding: 4rem 10%;
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 4rem 5%;
   min-height: calc(100vh - 80px);
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
-  margin-bottom: 3rem;
-  border-left: 5px solid #ff007f;
-  padding-left: 1.5rem;
-}
-
-.grid-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.highlight-box {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  border-left: 3px solid #ff007f;
-  background-color: #fdfdfd;
-  font-style: italic;
-  color: #333;
-}
-
-.highlight-box h3 {
-  font-size: 1.2rem;
+  margin-bottom: 3.5rem;
   color: #1a1a1a;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #ff007f;
+  position: relative;
   display: inline-block;
-}
-
-.text-column {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.text-column p {
-  text-align: justify;
-}
-
-.styled-list li {
-  margin-bottom: 20px;
-}
-
-.questions-column .styled-list li:hover {
-  border-bottom-color: #ff007f;
-  color: #1a1a1a;
-  transition: all 0.3s ease;
-}
-
-.profile-section {
-  margin-bottom: 2.5rem;
-}
-
-.profile-section h3 {
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  color: #ff007f;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
 }
 
 .section-banner {
   width: 100%;
-  height: 350px;
+  height: auto;
+  max-height: 500px;
   overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 3rem;
+  border-radius: 3px;
+  margin-bottom: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background-color: #f0f0f0;
 }
 
 .banner-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto;
+  /* Mantiene la proporción original */
+  display: block;
+  /* Elimina espacios fantasma debajo de la imagen */
+  object-fit: contain;
+  /* Asegura que la imagen se vea completa */
   transition: transform 0.5s ease;
 }
 
-.section-banner:hover .banner-img {
-  transform: scale(1.03);
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: #ff007f;
+  /* Línea de acento fucsia */
 }
 
+/* --- Tipografía y Columnas --- */
+.text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.text-column p {
+  text-align: left;
+  /* Mucho más legible que el justificado */
+  line-height: 1.8;
+  /* Más espacio para que el ojo descanse */
+  font-size: 1.05rem;
+  color: #555;
+}
+
+.text-column strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* --- Lista de Preguntas Estilizada --- */
+.styled-list {
+  list-style: none;
+  padding: 0;
+  border-left: 1px solid #eee;
+  padding-left: 2rem;
+}
+
+.styled-list li {
+  position: relative;
+  margin-bottom: 1.8rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.styled-list li::before {
+  content: '?';
+  position: absolute;
+  left: -2.8rem;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: #fdf2f8;
+  /* Fucsia muy clarito */
+  color: #ff007f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.styled-list li:hover {
+  color: #1a1a1a;
+}
+
+/* --- Caja de Cierre (Sentimientos) --- */
+.highlight-box {
+  margin-top: 5rem;
+  padding: 3rem;
+  background-color: #fcfcfc;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid #f0f0f0;
+}
+
+.highlight-box p {
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.final-word {
+  display: block;
+  font-family: serif;
+  /* Un toque de elegancia clásica */
+  font-style: italic;
+  font-size: 2.5rem;
+  color: #ff007f;
+  margin-top: 1.5rem;
+  letter-spacing: 2px;
+}
 
 /* ============================================================
   BOTÓN FLOTANTE GLOBAL
@@ -318,6 +363,13 @@ body {
 @media (max-width: 900px) {
   .grid-layout {
     grid-template-columns: 1fr;
+    /* En móviles vuelve a una columna */
+    gap: 2rem;
+  }
+
+  .content-container {
+    padding: 2rem 1.5rem;
+    /* Menos margen en móviles para aprovechar la pantalla */
   }
 
   .nav-container {
@@ -327,6 +379,40 @@ body {
   .home-hero {
     height: auto;
     padding-top: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* 1. Eliminamos el padding del contenedor superior para que la imagen llegue al borde */
+  .content-container {
+    padding-top: 25px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .section-banner {
+    margin-bottom: 2rem;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .section-title,
+  .grid-layout,
+  .highlight-box,
+  .action-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title::after {
+    left: 1.5rem;
+    /* Alineamos la rayita fucsia con el padding del texto */
   }
 }
 
