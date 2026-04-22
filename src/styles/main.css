@@ -268,7 +268,7 @@ body {
   font-weight: 600;
 }
 
-/* --- Caja de Cierre (Sentimientos) --- */
+/* --- Caja de Cierre --- */
 .highlight-box {
   margin-top: 5rem;
   margin-bottom: 3rem;
@@ -364,13 +364,11 @@ body {
 @media (max-width: 900px) {
   .grid-layout {
     grid-template-columns: 1fr;
-    /* En móviles vuelve a una columna */
     gap: 2rem;
   }
 
   .content-container {
     padding: 2rem 1.5rem;
-    /* Menos margen en móviles para aprovechar la pantalla */
   }
 
   .nav-container {
@@ -384,8 +382,49 @@ body {
 }
 
 @media (max-width: 768px) {
+  .home-hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    text-align: center;
+  }
 
-  /* 1. Eliminamos el padding del contenedor superior para que la imagen llegue al borde */
+  .hero-content {
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-logo {
+    width: 120px !important;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .hero-slogan {
+    font-size: 1rem !important;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+
+  .hero-slogan br {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+
   .content-container {
     padding-top: 25px;
     padding-left: 0;
@@ -413,7 +452,6 @@ body {
 
   .section-title::after {
     left: 1.5rem;
-    /* Alineamos la rayita fucsia con el padding del texto */
   }
 }
 
@@ -656,7 +694,6 @@ body {
 @media (max-width: 900px) {
   .mobile-menu-toggle {
     display: flex;
-    /* Se muestra en móviles */
   }
 
   .nav-container {
@@ -881,7 +918,6 @@ body {
 
 .popup-text {
   text-align: left;
-  /* Las listas se leen mejor alineadas a la izquierda */
   margin: 1rem 0;
   line-height: 1.5;
 }
