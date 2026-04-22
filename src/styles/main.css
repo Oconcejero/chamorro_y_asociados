@@ -195,11 +195,8 @@ body {
 .banner-img {
   width: 100%;
   height: auto;
-  /* Mantiene la proporción original */
   display: block;
-  /* Elimina espacios fantasma debajo de la imagen */
   object-fit: contain;
-  /* Asegura que la imagen se vea completa */
   transition: transform 0.5s ease;
 }
 
@@ -211,7 +208,6 @@ body {
   width: 60px;
   height: 4px;
   background-color: #ff007f;
-  /* Línea de acento fucsia */
 }
 
 /* --- Tipografía y Columnas --- */
@@ -223,9 +219,7 @@ body {
 
 .text-column p {
   text-align: left;
-  /* Mucho más legible que el justificado */
   line-height: 1.8;
-  /* Más espacio para que el ojo descanse */
   font-size: 1.05rem;
   color: #555;
 }
@@ -235,7 +229,7 @@ body {
   font-weight: 600;
 }
 
-/* --- Lista de Preguntas Estilizada --- */
+/* --- Lista de Preguntas --- */
 .styled-list {
   list-style: none;
   padding: 0;
@@ -260,7 +254,6 @@ body {
   width: 24px;
   height: 24px;
   background: #fdf2f8;
-  /* Fucsia muy clarito */
   color: #ff007f;
   border-radius: 50%;
   display: flex;
@@ -272,29 +265,37 @@ body {
 
 .styled-list li:hover {
   color: #1a1a1a;
+  font-weight: 700;
 }
 
 /* --- Caja de Cierre (Sentimientos) --- */
 .highlight-box {
   margin-top: 5rem;
-  padding: 3rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
   background-color: #fcfcfc;
-  border-radius: 15px;
+  border-radius: 5px;
   text-align: center;
   border: 1px solid #f0f0f0;
+  transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
+}
+
+.highlight-box:hover {
+  background-color: #ffeaf4;
+  border-color: #ffb6d9;
+  transform: translateY(-5px);
 }
 
 .highlight-box p {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto 1rem auto;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #444;
 }
 
 .final-word {
   display: block;
   font-family: serif;
-  /* Un toque de elegancia clásica */
   font-style: italic;
   font-size: 2.5rem;
   color: #ff007f;
