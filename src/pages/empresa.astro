@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import HelpButton from "../components/HelpButton.astro";
 import Footer from "../components/Footer.astro";
+import DynamicPopup from "../components/DynamicPopup.astro";
+
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
@@ -151,6 +153,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
       <div class="action-container">
         <HelpButton />
+        <DynamicPopup />
       </div>
     </section>
   </main>

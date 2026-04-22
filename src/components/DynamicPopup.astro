@@ -1,0 +1,234 @@
+---
+// DynamicPopup.astro
+const { pathname } = Astro.url;
+const baseUrl = import.meta.env.BASE_URL;
+
+const contentMap = {
+  [`${baseUrl}/familia`]: {
+    title: "Familia",
+    text: `
+      <p>¿Te ayudamos?</p>
+      <ul class="popup-list">
+        <li>Elaboración de acuerdos prematrimoniales.</li>
+        <li>Gestión integral de los procesos de Separación Matrimonial o Divorcio</li>
+        <li>Elaboración y gestión de medidas cautelares</li>
+        <li>Disolución de Sociedades de Gananciales.</li>
+        <li>Gestión de Herencias o redacciones testamentarias.</li>
+        <li>Mediaciones en los procesos de Separación.</li>
+        <li>Gestión de acogimientos y adopciones.</li>
+        <li>Tutelas.</li>
+        <li>Procesos de incapacitaciones.</li>
+        <li>Redacción y Gestión de Protocolos Familiares.</li>
+        <li>Regulación y normalización de las Uniones de Hecho, con formalización de Convenios Vitales de convivencia y regulación económica.</li>
+        <li>Testamentos Vitales.</li>
+      </ul>
+    `,
+    color: "#ff007f",
+  },
+  [`${baseUrl}/empresa`]: {
+    title: "La Empresa",
+    text: `
+      <p>¿Te ayudamos?</p>
+      <h3>Plan Preventivo</h3>
+      <ul class="popup-list">
+        <li>Consultoría integral de servicios empresariales (Analítica Financiera, Organizativa, Funcional).</li>
+        <li>Estudio y gestión de planes de Reestructuración Societaria.</li>
+        <li>Constitución de Sociedades y Holdings.</li>
+        <li>Fusiones, U.T.Es. Joint Ventures.</li>
+        <li>Gestión y redacción de Protocolos Familiares.</li>
+        <li>Estudio y propuesta de Planes de Viabilidad.</li>
+        <li>Elaboración de Planes de Negocio.</li>
+        <li>Estudio y Diagnóstico de la situación global de la Empresa.</li>
+        <li>Plan de servicio continuado de asesoramiento integral y CUSTODIA jurídica y TUTORÍA funcional y organizativa, mediante una IGUALA MENSUAL. (Desde 250 € hasta 6.000 € + IVA. según tamaños, personal, etc.)</li>
+      </ul>
+      <h3>Plan de Crisis</h3>
+      <ul class="popup-list">
+        <li>Reclamaciones Previas.</li>
+        <li>Procedimientos Monitorios.</li>
+        <li>Otros procedimientos.</li>
+        <li>Acciones Cambiarias.</li>
+        <li>Concursos de Acreedores.</li>
+        <li>Estudio y Propuesta de Planes de Viabilidad.</li>
+      </ul>
+    `,
+    color: "#ff007f",
+  },
+  [`${baseUrl}/contratos`]: {
+    title: "Los Contratos",
+    text: `
+      <p>¿Te ayudamos?</p>
+      <h3>Redactándole y revisando toda clase de contratos</h3>
+      <ul class="popup-list">
+        <li>Contratos de Acuerdos Prematrimoniales.</li>
+        <li>Contratos de Donaciones.</li>
+        <li>Contratos de Arrendamiento de servicios.</li>
+        <li>Contratos de Arrendamiento Financiero o de Leasing; contratos de Renting.</li>
+        <li>Contratos de Arrendamiento para Vivienda, Contrato de Arrendamiento para Uso de Local, Contrato de Traspaso de arrendamiento de local de negocio, Contrato de Arrendamiento de finca Rústica, Contrato de Arrendamiento con opción de compra.</li>
+        <li>Contratos de Depósito.</li>
+        <li>Contratos de Cesión de Uso.</li>
+        <li>Contrato de compraventa de Bienes Inmuebles.</li>
+        <li>Contratos de Arras o Señal.</li>
+        <li>Contratos de Seguro.</li>
+        <li>Contratos de Bienes Muebles: Vehículo y otros.</li>
+        <li>Contratos de Préstamo.</li>
+        <li>Contratos de Fianza o Aval.</li>
+        <li>Contratos de Servicios Profesionales.</li>
+        <li>Etc. Etc.</li>
+      </ul>
+    `,
+    color: "#ff007f",
+  },
+  [`${baseUrl}/vivienda`]: {
+    title: "Vivienda",
+    text: `
+      <p>¿Te ayudamos?</p>
+      <ul class="popup-list">
+        <li>Redacción de Contratos de Arras y de Compraventa.</li>
+        <li>Revisión de las relaciones contractuales existentes.</li>
+        <li>Extinción de Condominios.</li>
+        <li>Representación de las Comunidades de Vecinos en casos de Morosidad, actividades molestas, etc.</li>
+        <li>Contratos de alquileres rústicos y urbanos.</li>
+        <li>Actualizaciones de Rentas, derechos de prórroga. Extinciones de contrato.</li>
+        <li>Desahucios, reclamación de rentas impagadas, precarios.</li>
+        <li>Representación y actuaciones en casos de Defectos de Construcción en Obra Nueva, vicios ocultos, Defecto de Cabida, Retrasos en la entrega, Cláusulas abusivas.</li>
+        <li>Estudios de Planes de Viabilidad para la refinanciación y reorganización de los créditos y préstamos con bancos y entidades financieras.</li>
+      </ul>
+    `,
+    color: "#ff007f",
+  },
+  [`${baseUrl}/administracion`]: {
+    title: "Administración",
+    text: `
+      <p>¿Te ayudamos?</p>
+      <ul class="popup-list">
+        <li>Recursos por multas y sanciones.</li>
+        <li>Realizando las reclamaciones previas al ejercicio de las acciones civiles o laborales.</li>
+        <li>Procedimientos Contenciosos Administrativos.</li>
+        <li>Protección de Datos.</li>
+        <li>Ejerciendo acciones de Responsabilidad Patrimonial.</li>
+        <li>Acciones Civiles en casos de mala actuación profesional en los ámbitos de los Servicios Públicos (Sanidad, Enseñanza, Transporte, concesión de Licencias, etc.)</li>
+      </ul>
+    `,
+    color: "#ff007f",
+  },
+  [`${baseUrl}/trabajo`]: {
+    title: "El Trabajo",
+    text: `
+      <p>¿Te ayudamos?</p>
+      <h3>Contratos</h3>
+      <ul class="popup-list">
+        <li>Régimen General</li>
+        <li>Relaciones laborales especiales</li>
+        <li>Clausulas adicionales</li>
+      </ul>
+          <h4>Modificación del contrato</h4>
+          <ul class="popup-list">
+            <li>Modificación sustancial de las condiciones de trabajo.</li>
+            <li>Movilidad funcional.</li>
+            <li>Movilidad geográfica.</li>
+            <li>Sucesión de empresas.</li>
+            <li>Contratas de obras o servicios.</li>
+            <li>Cesión temporal de trabajadores.</li>
+          </ul>
+          <h4>Suspensión del contrato</h4>
+          <ul class="popup-list">
+            <li>Suspensión de empleo y sueldo.</li>
+            <li>Cierre de la empresa.</li>
+            <li>Excedencia.</li>
+          </ul>
+          <h4>Extinción del contrato</h4>
+          <ul class="popup-list">
+            <li>Obligaciones de las partes.</li>
+          </ul>
+          <h4>Causas de extinción</h4>
+          <ul class="popup-list">
+            <li>Por mutuo acuerdo.</li>
+            <li>Por causa consignadas válidamente en el contrato.</li>
+            <li>Por voluntad del trabajador.</li>
+            <li>Por expiración del tiempo convenido.</li>
+            <li>Por situaciones que afectan al trabajador.</li>
+            <li>Por situaciones que afectan al empresario.</li>
+          </ul
+      
+      <h3>Despido</h3>
+      <ul class="popup-list">
+        <li>Despido por causas objetivas.</li>
+        <li>Despido colectivo.</li>
+        <li>Despido disciplinario.</li>
+      </ul>
+      <h3>Infracciones y sanciones del orden social</h3>
+      <ul class="popup-list">
+        <li>Infracciones laborales.</li>
+        <li>Infracciones en materia de seguridad social.</li>
+      </ul>
+          <h4>Procedimiento sancionador</h4>
+          <ul class="popup-list">
+            <li>Inspección de trabajo y seguridad social.</li>
+            <li>Representación en todo procedimiento tanto en vías laborales, como civiles si hubiera lugar.</li>
+          </ul>
+          <h4>Procedimiento laboral</h4>
+          <ul class="popup-list">
+            <li>Medios de impugnación.</li>
+            <li>Ejecución de sentencias.</li>
+            <li>Solicitudes de incapacidades laborales, gestión de las prestaciones.</li>
+          </ul>
+          <h4>Prestaciones de seguridad social</h4>
+          <ul class="popup-list">
+            <li>Incapacidad temporal.</li>
+            <li>Incapacidad permanente.</li>
+            <li>Desempleo.</li>
+          </ul>
+    `,
+    color: "#ff007f",
+  },
+  default: {
+    title: "¿En qué podemos ayudarte?",
+    text: "Nuestro equipo está listo para asesorarte en tu caso legal.",
+    color: "#1a1a1a",
+  },
+};
+
+const cleanPath =
+  pathname.endsWith("/") && pathname !== `${baseUrl}/`
+    ? pathname.slice(0, -1)
+    : pathname;
+const content = contentMap[cleanPath] || contentMap["default"];
+---
+
+<div class="button-center-container">
+  <button
+    id="open-popup"
+    class="trigger-btn"
+    style={`--btn-color: ${content.color}`}
+  >
+    ¿Qué podemos hacer por ti?
+  </button>
+</div>
+
+<div id="popup-overlay" class="overlay">
+  <div class="popup-card">
+    <button id="close-popup" class="close-btn">&times;</button>
+    <h2 style={`color: ${content.color}`}>{content.title}</h2>
+    <div class="popup-text" set:html={content.text} />
+  </div>
+</div>
+
+<script>
+  const openBtn = document.getElementById("open-popup") as HTMLButtonElement;
+  const closeBtn = document.getElementById("close-popup") as HTMLButtonElement;
+  const overlay = document.getElementById("popup-overlay") as HTMLElement;
+
+  openBtn?.addEventListener("click", () => {
+    overlay?.classList.add("active");
+  });
+
+  closeBtn?.addEventListener("click", () => {
+    overlay?.classList.remove("active");
+  });
+
+  overlay?.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      overlay?.classList.remove("active");
+    }
+  });
+</script>
